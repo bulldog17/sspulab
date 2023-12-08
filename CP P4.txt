@@ -1,0 +1,52 @@
+#Practical no. 4
+#Name: 
+#PRN: 
+
+#1. Create a Python class Customer with attributes: name, address, contact_info
+#2. Create a Python class Account with attributes: account_number, account_type and methods : deposit, withdraw, get_balance
+#3. Create a Python class Transactions with attributes: transaction_type,amount
+#4. Create a customer and account object, perform deposit and withdraw transactions.
+
+class Customer:
+    def __init__(self, name, address, contact_info):
+        self.name = name
+        self.address = address
+        self.contact_info = contact_info
+    def display(self):
+        print("NAME=", self.name, "\nAddress=", self.address, "\nContact info=", self.contact_info)
+class Account(Customer):
+    def __init__(self, name, address, contact_info, account_number, account_type):
+        super().__init__(name, address, contact_info)
+        self.account_number = account_number
+        self.account_type = account_type
+        self.balance = 0  # Initialize balance to 0
+    def deposit(self, amount):
+        self.balance += amount
+    def withdraw(self, amount):
+        if self.balance >= amount:
+            self.balance -= amount
+        else:
+            print("Insufficient balance")
+    def get_balance(self):
+        return self.balance
+    def display(self):
+        super().display()
+        print("Account Number=", self.account_number, "\nAccount Type=", self.account_type, "\nBalance=", self.balance)
+class Transactions(Account):
+    def __init__(self, name, address, contact_info, account_number, account_type, transaction_type, amount):
+        super().__init__(name, address, contact_info, account_number, account_type)
+        self.transaction_type = transaction_type
+        self.amount = amount
+    def display(self):
+        super().display()
+        print("Transaction type=", self.transaction_type, "\nAmount=", self.amount)
+
+A = Customer("Rohan", "PUNE", "453")
+B = Account("Rohan", "PUNE", "453", "59634", "Savings")
+C = Transactions("Rohan", "PUNE", "453", "59634", "Savings", 'Deposit', 590)
+D = Transactions("Rohan", "PUNE", "453", "59634", "Savings", 'Withdraw', 100)
+
+A.display()
+B.display()
+C.display()
+D.display()
