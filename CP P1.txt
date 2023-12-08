@@ -1,0 +1,29 @@
+#Practical no. 1
+#Name: 
+#PRN: 
+#Q) Create a class car.
+#class: car
+#attributes: year, mpg, and speed
+#methods: accelerate and brake
+#object: car1
+class Car:
+    def __init__(self, year, mpg, speed):
+        self.year = year
+        self.mpg = mpg
+        self.speed = speed
+
+    def accelerate(self):
+        self.speed += 20
+        return self.speed
+
+    def brake(self):
+        self.speed -= 50
+        return self.speed
+
+    def display(self):
+        print("Year:", self.year, "Speed:", self.speed, "Mileage:", self.mpg)
+
+car1 = Car(2012, 80, 90)
+car1.accelerate()
+car1.brake()
+car1.display()
