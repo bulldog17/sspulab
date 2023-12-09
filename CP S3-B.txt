@@ -1,0 +1,30 @@
+#Skill no. 3-B
+#Name:
+#PRN: 
+
+#The valid IFSC(Indian Financial System Code) must satisfy the following conditions:
+#1. It should be 11 characters long.
+#2. The first four characters should be upper case alphabets.
+#3. The fifth character should be 0.
+#4. The last six chatacters are usually numeric, but can also be alphabetic.
+
+
+import re
+def isValidIFSC(IFSC):
+  regex="^[A-Z]{4}0[A-Z0-9]{6}$"
+
+  #Complie the RegEx
+  p=re.compile(regex)
+
+  #If the IFSC is empty return False
+  if (IFSC==None):
+    return False
+
+  if(re.search(p,IFSC) and len(IFSC==10)):
+    return True
+  else:
+    return False
+
+#Test Case 1:
+str1="HDFC00000596354"
+print(isValidIFSC(str1))

@@ -1,0 +1,23 @@
+#Skill no. 4-B
+#Name:
+#PRN: 
+
+#Q) Check whether the string is alphanumberic or not
+
+import re
+def isAlphanumeric(str):
+  regex = "^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]+$"
+
+  #Complie the ReGex
+  p=re.compile(regex)
+
+  if(str==None):
+    return False
+  if (re.search(p,str)):
+    return True
+  else:
+    return False
+
+#Test Case 1:
+str1="sspu103"
+print(str1,":", isAlphanumeric(str1))

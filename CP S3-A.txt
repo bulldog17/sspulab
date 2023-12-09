@@ -1,0 +1,41 @@
+#Skill no. 3
+#Name:
+#PRN: 
+
+#Q A) Make a RegEx pattern for the following:
+# The valid PAN Card number satisfy the following conditions:
+#1. It should be ten characters long.
+#2. The first five characters should be any upper case alphabets.
+#3. The next four characters should be any number from 0 to 9.
+#4. The last(tenth) character should be any upper case alphabet.
+#5. It should not contain any white spaces.
+
+import re
+def isValidPanCardNo(panCardNo):
+  regex="[A-Z]{5}{0-9}{4}{A-Z}{1}"
+
+  #Compile the RegEx
+  p=re.compile(regex)
+
+  #If the PAN Card Number is empty return false
+  if(panCardNo==None):
+    return False
+
+  if(re.search(p,panCardNo) and len(panCardNo==10)):
+    return True
+  else:
+    return False
+
+#Test Case 1:
+str1= "BZNAA2318J"
+print(isValidPanCardNo(str1))
+
+#Test Case 2:
+str2="23XAABN18J"
+print(isValidPanCardNo(str2))
+
+#Test Case 3:
+str3="AGHPC49348K"
+print(isValidPanCardNo(str3))
+
+#[A-Z]{5} represent the first five upper case alphabets
